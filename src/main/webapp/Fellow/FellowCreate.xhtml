@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="FellowCreateForm" inline="true">
+                        <b:messages id="allmsg" />
+
+
+                        <b:panel title ="Fellow Detail Creation"  span="6" >
+                            <b:panelGrid columns="2" >   
+                                <h:outputText value="Enquiry Date"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <h:outputText value="Type"   style="width:60px"/>
+                                <b:selectOneMenu  id="type" >
+                                    <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.fellowType}" />
+                                </b:selectOneMenu>
+
+
+                                <h:outputText value="First Name " style="width:60px"/>
+                                <b:inputTextarea id="fname" maxlength="40"  rows="2" span="3"
+                                                 placeholder="Name 60 chars First Name " />
+                                <h:outputText value="Middle Name " style="width:60px"/>
+                                <b:inputTextarea id="mname" maxlength="40"  rows="2" span="3"
+                                                 placeholder="Middle Name  " />
+
+                                <h:outputText value="Last Name " style="width:60px"/>
+                                <b:inputTextarea id="lname" maxlength="40"  rows="2" span="3"
+                                                 placeholder="Last Name  " />
+
+
+                                <h:outputText value="Gender"  style="width:60px" />
+                                <b:selectOneMenu  id="gender" >
+                                    <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.gender}" />
+                                </b:selectOneMenu>
+
+                                
+                                <h:outputText value="Age" style="width:60px"/>
+                                <b:inputText id="age" maxlength="3"  mask ="999"
+                                                 placeholder="Age" />
+
+                                <h:outputText value="Aadhaar"  style="width:60px" />
+
+                                <b:inputText id="aadhar"  maxlength="12" mask="9999-99999-999" style="width:200px"
+                                             span="3"
+                                             placeholder="Enter Aadhar Number" />
+
+                            </b:panelGrid>
+
+                        </b:panel>     
+                        <b:panel title="Candidate reference data" span="6" >
+                            <b:panelGrid columns="2" >
+                                <h:outputText value="Application Date"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                
+                                <b:inputText value="Source Name"  span="2" readonly="true" />
+                                <b:inputText id="rsource" maxlength="40"  style="width:200px" 
+                                             placeholder="Ref Source" />
+                                <b:inputText value="Source Type"  span="2" readonly="true"  />
+                                <b:selectOneMenu  id="rtype" >
+                                    <f:selectItem itemLabel="(Please select type)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.sourceType}" />
+                                </b:selectOneMenu>
+                                 <h:outputText value="Education"   style="width:60px" />
+                                <b:inputText id="qualification" maxlength="40" span="3"
+                                             placeholder="Educational Qualification - University " />
+                                <h:outputText value="Occupation"  style="width:60px"/>
+                                <b:inputText id="expr" maxlength="40" span="3"
+                                             placeholder="roles, designation " />
+                                 <h:outputText value="Language"  style="width:60px"/>
+                                <b:inputText id="lang" maxlength="40" span="3"
+                                             placeholder=" " />
+                                 <h:outputText value="Commitment"  style="width:60px"/>
+                                <b:inputText id="comm" maxlength="3" span="3"
+                                             placeholder="in Months " />
+                                <b:inputText value="Remarks"  span="2" readonly="true" />
+                                <b:inputTextarea id="rsinstr"  maxlength="100" style="width:200px" rows="2"
+                                                 placeholder="Remarks, if any" />
+                            </b:panelGrid>
+                        </b:panel>
+
+                        <b:panel title="Contact Information" span="6" >
+                            <b:panelGrid columns="2"  >
+                                <h:outputText value="Address" style="width:80px"/>
+                                <b:inputTextarea id="address" rows="5" span="4"
+                                                 
+                                                 placeholder="Address " />
+
+                                <h:outputText value="City" style="width:80px"/>
+                                <b:inputText id="city" 
+                                             style="width:200px"
+                                             maxlength="40" placeholder="City" />
+
+                                <h:outputText value="State" style="width:60px" />
+                                <b:selectOneMenu  id="ctype" >
+                                    <f:selectItem itemLabel="(Please select State)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.indianStates}" />
+                                </b:selectOneMenu>
+                                <h:outputText value="Pincode" style="width:80px"/>
+                                <b:inputText style="width:200px"
+                                             id="pincode"  maxlength="6" mask="999999"
+                                             placeholder="Pincode" />
+
+                                <h:outputText value="Phone" style="width:80px"/>
+                                <b:inputText style="width:200px"
+                                             id="phone"  maxlength="12" mask="999999999999"
+                                             placeholder="Phone" />
+
+                                <h:outputText value="Alternate Phone" style="width:80px"/>
+                                <b:inputText style="width:200px"
+                                             id="aphone"  maxlength="12" mask="999999999999"
+                                             placeholder="Phone" />
+
+                                <h:outputText value="Mail" style="width:80px"/>
+                                <b:inputText style="width:200px"
+                                             id="mail"  maxlength="64"
+                                             placeholder="contact mail ID" />
+
+                            </b:panelGrid>
+                        </b:panel>
+
+                        <b:column medium-screen="1" >
+                            <b:commandButton value="Save" ajax="true" 
+                                             update="@form" look="primary" />
+                        </b:column>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

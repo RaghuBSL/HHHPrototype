@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="PartnerScreeningForm" inline="true">
+                        <b:messages id="allmsg" />
+
+                        <b:panel title ="Partner Screening Form"  span="10" >
+                            <b:panelGrid columns="2" >
+                                <h:outputText value="Partner ID " style="width:60px" />
+                                <h:outputText value="000023" style="width:300px"/>
+                                <h:outputText value="Legal Name " style="width:60px" />
+                                <b:inputTextarea id="legalname" maxlength="60" style="width:300px" readonly="true"
+                                                 rows="2" value="ABC Trading Co" />
+                            </b:panelGrid>
+                            <b:panelGrid  columns="1" > 
+
+                                <b:row>
+                                    <b:inputText value="Questions" readonly="true" span="6" style="width:400px;" />
+                                    <b:inputText value="Answer" readonly="true"  style="width:400px;" />
+                                    <b:inputText value="Score 1-10" readonly="true" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3"   style="width:400px;"
+                                                     value="How well do you know the local socio -economic conditions? Can you define the social backwardness or other issues of this region? " readonly="true"  />
+                                    <b:inputTextarea id="q1" value="" rows="4"  style="width:400px;" />
+                                    <b:inputText id="qs1" value="" maxlength="25" span="1" /> 
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="5"  style="width:400px;"
+                                                     value="Mobilizing students, drop-outs and needy persons from surrounding villages is one of the key ask in HHH program. Have you implemented or documented any such program?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q2" value="" rows="4"  style="width:400px;"/>
+                                    <b:inputText id="qs2" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3"  style="width:400px;"
+                                                     value="How many local employers can be tapped through your network? We desire to place more people in local jobs, self-employment, can you help in this endeavor?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q3" value="" rows="4"  style="width:400px;" />
+                                    <b:inputText id="qs3" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3"  style="width:400px;"
+                                                     value="How long has been your NGO/trust/institution in operation? How many branches or offices?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q4" value="" rows="4"  style="width:400px;" />
+                                    <b:inputText id="qs4" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3" style="width:400px;" value="What are your focus areas in the recent past? Have you captured few of the success stories?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q5" value="" rows="4"  style="width:400px;"/>
+                                    <b:inputText id="qs5" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3"  style="width:400px;" value="Please give some details of your core team and leaders" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q6" value="" rows="4"  style="width:400px;"/>
+                                    <b:inputText id="qs6" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="3" style="width:400px;" value="If given an opportunity can you hire few of the trainees, once they finish 1000 hours of capability building? In any role, any salary of your approval" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q7" value="" rows="4"  style="width:400px;" />
+                                    <b:inputText id="qs7" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="5" style="width:400px;" value="What do you want to accomplish in the next 3 years through your institution? This is with or without partnering with HHH. Who are your other potential/existing partners?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q8" value="" rows="5"  style="width:400px;" />
+                                    <b:inputText id="qs8" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea  style="width:400px;" rows="5" value="We believe in social transformation through appropriate education, capability building of 1000 hours, over 6-9 months. Would you want to work with us?" readonly="true" span="6"  />
+                                    <b:inputTextarea id="q9" value="" rows="5"  style="width:400px;" />
+                                    <b:inputText id="qs9" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+
+                                    <b:inputTextarea size="150" rows="3" style="width:400px;"
+                                                     value="Will it be possible to prepare your organization to roll out this HHH program independently?" readonly="true" span="3"  />
+                                    <b:inputTextarea id="q10" value="" rows="4"  style="width:400px;" />
+                                    <b:inputText id="qs10" value="" maxlength="25" span="1" />
+                                </b:row>
+                                <b:row>
+                                    <b:inputTextarea rows="2" style="width:400px;"
+                                                     value="Operating on Not-For-Profit Model" readonly="true" span="3"  />
+                                    <b:inputTextarea id="q11" value="" rows="4"  style="width:400px;" /> 
+                                    <b:inputText id="qs11" value="" maxlength="25" span="1" />
+                                </b:row>
+
+                            </b:panelGrid>    
+
+                            <b:column medium-screen="1" >
+                                <b:commandButton value="Save" ajax="true" 
+
+                                                 update="@form" look="primary" />
+                            </b:column>
+                        </b:panel>
+                    </b:form>
+                </b:container>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

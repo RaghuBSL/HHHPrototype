@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">
+                <b:container fluid="true">
+                    <b:form id="FellowForm" inline="true">
+                        <b:messages id="allmsg" />
+                        <b:row>
+                            <h:panelGrid columns="2" cellpadding="5" >
+
+                                <b:panel title="Select Fellow " look="info" medium-screen="12" >
+
+                                    <b:inputText value="From Date"  readonly="true" span="3" />
+                                    <b:datepicker  span="3"  value="#{trainerController.startDate}" 
+                                                   placeholder="From date to Search"
+                                                   tooltip="Enter start Application date "/>
+
+                                    <b:inputText value="End Date"  readonly="true" span="3" />
+                                    <b:datepicker  span="3"  value="#{trainerController.endDate}"
+                                                   placeholder="end date to Search"
+                                                   tooltip="Enter end last date when Application date"/>
+
+
+                                    <b:inputText value="Name"  span="1" readonly="true" />
+                                    <b:inputText placeholder="Enter partial char of Last name to search" span="1"/>
+
+
+                                </b:panel>
+                                <b:panel >
+                                    <b:commandButton value="Search" look="primary"
+                                                     update="@form"  />
+                                    <b:commandButton value="Create Fellow" action="#{fellowController.getFellowCreateForm()}" immediate="true"
+                                                     look="primary" ajax="true"
+                                                     />
+                                </b:panel>
+
+                            </h:panelGrid>
+                        </b:row>  
+                        <b:panel title ="Trainer List" look="primary" medium-screen="12" >
+                            <h:form>
+                                 <b:dataTable value="#{trainerController.items}" var="tran" >
+                                    <f:facet name="header" >
+                                        <tr>
+                                            <th>Fellow ID</th>
+                                            <th>Type</th>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                            <th>Gender</th>
+                                            <th>City</th>
+                                            <th>State</th>
+                                            <th>Phone</th>
+                                            <th>Mail ID</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </f:facet>
+                                    <b:dataTableColumn  value="#{fellow.fellowID}" />
+                                    <b:dataTableColumn  value="#{fellow.type}" />
+                                    <b:dataTableColumn  value="#{fellow.firstName}"  />                            
+                                    <b:dataTableColumn  value="#{fellow.middleName}"  />
+                                    <b:dataTableColumn  value="#{fellow.lastName}" />
+                                    <b:dataTableColumn  value="#{fellow.gender}" />
+                                    <b:dataTableColumn  value="#{fellow.city}" />
+                                    <b:dataTableColumn  value="#{fellow.state}"  />
+                                    <b:dataTableColumn  value="#{fellow.phone}"  />
+                                    <b:dataTableColumn  value="#{fellow.mailID}"  />
+                                    <b:dataTableColumn  value="#{fellow.status}"  />
+                                </b:dataTable>
+                            </h:form>
+                        </b:panel>  
+                        <b:panel >
+                            <h:form >
+                                <b:navCommandLink value="" 
+                                                  action="/Fello/FellowEdit.xhtml"                    
+                                                  update="@form @(.content)"  />
+                            </h:form> 
+                            <h:form >
+                                <b:navCommandLink value="View/Edit" ajax="true" immediate="true" 
+                                                  action="#{fellowController.getFellowEditForm()}" />
+                            </h:form>
+                        </b:panel>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>    
+    </h:body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="FellowRound3Form" inline="true">
+                        <b:messages id="allmsg" />
+
+                        <b:panel title ="Fellow Interview Results Round 3"  span="4" >
+                            <b:panelGrid columns="2" >    
+                                <h:outputText value="Fellow ID" />
+                                <h:outputText value="1234" />
+                                <h:outputText value="Name " style="width:60px"/>
+                                <b:inputTextarea id="legalname" maxlength="60"  
+                                                 style="width:200px"
+                                                 rows="2" span="3" readonly="true"
+                                                 value="Fellow One " />
+                            </b:panelGrid>
+                        </b:panel>     
+                        <b:panel title="Placement Details" span="6" >
+                            <b:panelGrid columns="2" >
+                                <b:inputText value="Preferred Start Date"  span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="Preferred End Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="Preferred Location"  span="3" readonly="true" />
+                                <b:inputText id="cond"  maxlength="40" style="width:200px" 
+                                             placeholder="Location choice" />
+
+                                <b:inputText value="Proposed T3 Start Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="Proposed T3 End Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:panel title="Training Details" span="6" >
+                            <b:panelGrid columns="2" >
+                                <b:inputText value="Proposed Start Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="Proposed End Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="City"   span="3"  readonly="true"/>
+                                <b:inputText id="city" 
+                                             style="width:200px"
+                                             maxlength="40" placeholder="City" />
+                                <b:inputText value="Region"   span="3"  readonly="true"/>
+                                <b:inputText style="width:200px"  
+                                             id="regn"  maxlength="40" 
+                                             placeholder="Region" />
+                                <b:inputText value="State"   span="3"  readonly="true" />
+                                <b:selectOneMenu  id="ctype" >
+                                    <f:selectItem itemLabel="(Please select State)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.indianStates}" />
+                                </b:selectOneMenu>
+                                <b:inputText value="Acceptance Date"   span="3" readonly="true"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <b:inputText value="Acceptance Confirmation"   span="3" readonly="true"/>
+                                <b:selectOneMenu  id="yno" >
+                                    <f:selectItem itemLabel="(Please select )" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.yesNo}" />
+                                </b:selectOneMenu>
+                            </b:panelGrid>
+
+                        </b:panel>    
+
+
+                        <b:commandButton value="Save" ajax="true" 
+                                         update="@form" look="primary" />
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

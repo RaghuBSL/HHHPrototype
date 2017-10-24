@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title><ui:insert name="title">MIC  </ui:insert></title>
+
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" size="150" >
+                <h:form >
+                    <b:navBar brand="MIC"  position="top" sticky="true"  >
+                        <b:navbarLinks>
+                            <b:navCommandLink value="Partner"   immediate="true"
+                                              action="/Partner/PartnerList.xhtml"  />
+
+                            <b:navCommandLink value="Trainer" update="@form @(.content)" 
+                                              />
+                            <b:dropMenu value="">
+                                <b:navCommandLink value="List" action="/Trainer/TrainerList.xhtml" />
+                            </b:dropMenu>
+                            <b:navCommandLink value="Fellow" action="/Fellow/FellowList.xhtml"
+                                              />
+                            <b:navLink value="Trainee" 
+                                       update="@form @(.content)" ></b:navLink>
+                            <b:dropMenu value="">
+                                <b:navCommandLink value="Create" action="/Trainee/TraineeCreate.xhtml" />
+                                <b:navCommandLink value="Batch" action="/Trainee/TraineeBatch.xhtml" />
+                                <b:navCommandLink value="Sprint" action="/Trainee/TraineeSprint.xhtml" />
+                            </b:dropMenu>
+                            <b:navLink value="Config" update="@form @(.content)" />
+                            <b:dropMenu value="">
+                                <b:navLink value="Role  Setup" update="@form @(.content)" />
+                                <b:navLink value="Rights Setup" update="@form @(.content)" />
+                                <b:navLink value="User  Setup" update="@form @(.content)" />
+                            </b:dropMenu>
+                            <b:navLink value="Logout" update="@form @(.content)" 
+                                       style="color: red"  />
+                        </b:navbarLinks>
+                    </b:navBar>
+                    <br></br>
+                    <br></br>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">    
+                <ui:insert name="main"/>
+                <ui:include src="Timeout.xhtml"/>
+            </p:layoutUnit> 
+
+        </p:layout>
+    </h:body>
+</html>

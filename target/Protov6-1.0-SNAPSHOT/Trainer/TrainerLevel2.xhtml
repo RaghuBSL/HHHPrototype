@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="TrainerLevel1Form" inline="true">
+                        <b:messages id="allmsg" />
+
+
+                        <b:panel title ="Trainer Written Test Level 2 "  span="6" >
+                            <b:panelGrid columns="2" >    
+                                <h:outputText value="Trainer ID" />
+                                <h:outputText value="1234" />
+                                <h:outputText value="Name " style="width:60px"/>
+                                <b:inputTextarea id="legalname" maxlength="60"  rows="2" span="3" readonly="true"
+                                                 value="Candidate One " />
+                            </b:panelGrid>
+
+                        </b:panel>     
+                        <b:panel title="Written Test Mark" span="6" >
+                            <b:panelGrid columns="2" >
+                                <b:inputText value="English"  span="2" readonly="true" />
+                                <b:inputText mask="999" maxlength="3" />
+
+                                <b:inputText value="Maths"  span="2" readonly="true"  />
+                                <b:inputText mask="999" maxlength="3"/>
+
+                                <b:inputText value="Reasoning"  span="2" readonly="true" />
+                                <b:inputText mask="999" maxlength="3"/>
+                                <b:inputText value="Computers"  span="2" readonly="true" />
+                                <b:inputText mask="999" maxlength="3"/>
+                                <b:inputText value="Remarks"  span="2" readonly="true" />
+                                <b:inputTextarea id="rsinstr1"  maxlength="100" style="width:200px" rows="2"
+                                                 placeholder="Remarks, if any" />
+                                <b:inputText value="Follow upRemarks"  span="2" readonly="true" />
+                                <b:inputTextarea id="rsinstr2"  maxlength="100" style="width:200px" rows="2"
+                                                 placeholder="Remarks, if any" />
+                                <b:inputText value="Application Status"  span="2" readonly="true" />
+                                <b:selectOneMenu  id="rstatus" >
+                                    <f:selectItem itemLabel="(Please select status)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.trainerStatus}" />
+                                </b:selectOneMenu>
+
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:column medium-screen="1" >
+                            <b:commandButton value="Save" ajax="true" 
+                                             update="@form" look="primary" />
+                        </b:column>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

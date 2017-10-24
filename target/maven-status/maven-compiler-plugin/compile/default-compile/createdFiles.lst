@@ -1,0 +1,12 @@
+controller\FellowController.class
+entity\TraineeList.class
+entity\Trainer.class
+controller\TrainerController.class
+session\AppMapBean.class
+common\NavigationBean.class
+controller\PartnerController.class
+entity\PartnerOnboard.class
+entity\Partnermaster.class
+entity\AuditInfra.class
+entity\Fellow.class
+controller\TraineeController.class

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="TraineeRegistrationForm" inline="true">
+                        <b:panel >
+                            <b:messages id="allmsg" />
+                            <b:tabView pills="true" contentStyle="border: 1px solid #ddd;padding:10px" id="ttv"
+                                       content-disabled="false" activeIndex="#{traineeController.activeIndex}"
+                                       >
+                                <b:tab title="Registraion Detail " disabled="#{traineeController.disabledTab0}" id="rdt" >
+                                    <b:panel span="4" title="Batch and Center Info">
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Registration No * " style="width:40px" />
+                                            <b:inputText id="regnno" maxlength="12" style="width:200px"
+                                                         placeholder="Registration No " />
+                                            <h:outputText value="Batch Code * " style="width:40px" />
+                                            <b:inputText id="bcode" maxlength="12" style="width:200px"
+                                                         placeholder="Batch Code " />
+                                            <h:outputText value="Partner Name * " style="width:40px" />
+                                            <b:inputText id="pname" maxlength="40" style="width:200px"
+                                                         placeholder="Partner name " />
+                                            <h:outputText value="Cluster Name * " style="width:40px" />
+                                            <b:inputText id="cname" maxlength="40" style="width:200px"
+                                                         placeholder="Cluster Name " />
+                                            <h:outputText value="Center Name * " style="width:40px" />
+                                            <b:inputText id="center" maxlength="40" style="width:200px"
+                                                         placeholder="Center Name " />
+                                            <h:outputText value="Name Of Trainee * " style="width:40px" />
+                                            <b:inputText id="tname" maxlength="40" style="width:200px"
+                                                         placeholder="Trainee Name " />
+
+                                            <h:outputText value="Gender *"  style="width:40px" />
+                                            <b:selectOneMenu  id="gende" >
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.gender}" />
+                                            </b:selectOneMenu>
+
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Personal Data">
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Blood group " style="width:40px" />
+                                            <b:selectOneMenu  id="bgrp" >
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.bloodGroup}" />
+                                            </b:selectOneMenu>
+
+                                            <h:outputText value="Date of Birth *"  style="width:60px" />
+
+                                            <b:datepicker  value="#{appMapBean.entryDate}" tooltip="Enter date ofBirth"/>
+                                            <h:outputText value="Age " style="width:40px" />
+                                            <b:inputText id="age" maxlength="3" style="width:200px"
+                                                         placeholder="Age " />
+                                            <h:outputText value="Caste * " style="width:40px" />
+                                            <b:inputText id="caste" maxlength="20" style="width:200px"
+                                                         placeholder="Caste " />
+                                            <h:outputText value="Religion * " style="width:40px" />
+                                            <b:inputText id="relgn" maxlength="20" style="width:200px"
+                                                         placeholder="Religion " />
+                                            <h:outputText value="Marital Status * " style="width:40px" />
+                                            <b:selectOneMenu  id="mstatus" >
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.maritalStatus}" />
+                                            </b:selectOneMenu>
+                                            <h:outputText value="Languages Known * " style="width:40px" />
+                                            <b:inputText id="lknown" maxlength="40" style="width:200px"
+                                                         placeholder="Languages Known " />
+
+                                            <h:outputText value="Prior Experience"  style="width:40px" />
+                                            <b:inputText id="pexp" maxlength="20" style="width:200px"
+                                                         placeholder="Experience in Months " />
+
+                                            <h:outputText value="Unique ID *"  style="width:40px" />
+                                            <b:selectOneMenu  id="uid" >
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.uniqueID}" />
+                                            </b:selectOneMenu>
+                                            <h:outputText value="ID Number *"  style="width:40px" />
+                                            <b:inputText id="IDNumber" maxlength="20" style="width:200px"
+                                                         placeholder="Enter number as in Card " />
+
+                                            <h:outputText value="Date of Application *"  style="width:60px" />
+
+                                            <b:datepicker  value="#{appMapBean.entryDate}" tooltip="Enter date of Application"/>
+                                            <h:outputText value="Program Name *" style="width:40px" />
+                                            <b:inputText id="pgname" maxlength="25" style="width:200px" />
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:commandButton value="Next" ajax="true" look="success"  immediate="true"
+                                                     action="#{traineeController.tabNext()}" update=":TraineeRegistrationForm" />
+                                </b:tab>
+                                <b:tab id="pdetail" title="Family and Personal Detail " disabled="#{traineeController.disabledTab1}" >
+                                    <b:panel span="4" title="Family Info">
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Father's Name * " style="width:40px" />
+                                            <b:inputText id="fhn" maxlength="40" style="width:200px"
+                                                         placeholder="Father's Name " />
+                                            <h:outputText value="Father's Occupation " style="width:40px" />
+                                            <b:inputText id="fhno" maxlength="40" style="width:200px"
+                                                         placeholder="Father's Occupation " />
+                                            <h:outputText value="Mother's Name *" style="width:40px" />
+                                            <b:inputText id="mth" maxlength="40" style="width:200px"
+                                                         placeholder="Mother's Name " />
+                                            <h:outputText value="Mother's Occupation " style="width:40px" />
+                                            <b:inputText id="mtho" maxlength="40" style="width:200px"
+                                                         placeholder="Mother's Occupation " />
+                                            <h:outputText value="Spouse's Name " style="width:40px" />
+                                            <b:inputText id="spn" maxlength="40" style="width:200px"
+                                                         placeholder="Spouse's Name " />
+                                            <h:outputText value="Spouse's Occupation " style="width:40px" />
+                                            <b:inputText id="spno" maxlength="40" style="width:200px"
+                                                         placeholder="Spouse's Occupation " />
+                                            <h:outputText value="Sibling's Name " style="width:40px" />
+                                            <b:inputText id="sibn" maxlength="40" style="width:200px"
+                                                         placeholder="Sibling's Name " />
+                                            <h:outputText value="Sibling's Occupation " style="width:40px" />
+                                            <b:inputText id="sibno" maxlength="40" style="width:200px"
+                                                         placeholder="Sibling's Occupation " />
+
+
+                                            <h:outputText value="Children detail  " style="width:40px" />
+                                            <b:inputText id="pname" maxlength="40" style="width:200px"
+                                                         placeholder="Children detail" />
+                                            <h:outputText value="Family Annual Income * " style="width:40px" />
+                                            <b:inputText id="cname" maxlength="10" style="width:200px"
+                                                         placeholder="Income in Numbers " />
+                                            <h:outputText value="Agriculture land owned by family " style="width:40px" />
+                                            <b:inputText id="aland" maxlength="40" style="width:200px"
+                                                         />
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Trainee Perspective" >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Family problem, if any" style="width:40px" />
+                                            <b:inputText id="det1" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Why did you leave school? *" style="width:40px" />
+                                            <b:inputText id="det2" maxlength="40" style="width:200px" />
+
+                                            <h:outputText value="Aim behind joining this training *" style="width:40px" />
+                                            <b:inputText id="det3" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Aim in life" style="width:40px" />
+                                            <b:inputText id="det4" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Hobbies" style="width:40px" />
+                                            <b:inputText id="det5" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="How did trainee come to know about this program? *" style="width:40px" />
+                                            <b:inputText id="det6" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Does trainee have a two-wheeler" style="width:40px" />
+                                            <b:selectOneMenu  id="det7" >
+                                                <f:selectItem itemLabel="(Please select)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.yesNo}" />
+                                            </b:selectOneMenu>
+                                            <h:outputText value="Does trainee suffer from any physical disability? *" style="width:40px" />
+                                            <b:inputText id="det8" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Does trainee undergo any medical treatment? *" style="width:40px" />
+                                            <b:inputText id="det9" maxlength="40" style="width:200px"
+                                                         />
+                                            <h:outputText value="Does trainee convict by any law of court? *" style="width:40px" />
+                                            <b:inputText id="det10" maxlength="40" style="width:200px"
+                                                         />
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:commandButton value="Next" ajax="true" look="success" immediate="true"
+                                                     action="#{traineeController.tabNext()}" update=":TraineeRegistrationForm" />
+                                    <b:commandButton value="Prev" ajax="true" look="success"  immediate="true"
+                                                     action="#{traineeController.tabPrev()}" update=":TraineeRegistrationForm" />
+
+
+                                </b:tab>
+                                <b:tab title="Contact and Training  Detail " disabled="#{traineeController.disabledTab2}">
+                                    <b:panel span="4" title="Current Address" >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Address *" style="width:40px" />
+                                            <b:inputTextarea id="adr1" maxlength="20" style="width:200px" rows="4" 
+                                                             />
+                                            <h:outputText value="Village *" style="width:40px" />
+                                            <b:inputText id="adr2" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Taluka / Block *" style="width:40px" />
+                                            <b:inputText id="adr3" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="District *" style="width:40px" />
+                                            <b:inputText id="adr4" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="State *" style="width:40px" />
+                                            <b:selectOneMenu  id="adr5" >
+                                                <f:selectItem itemLabel="(Please select state)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.indianStates}" />
+                                            </b:selectOneMenu>
+                                            <h:outputText value="Pincode *" style="width:40px" />
+                                            <b:inputText id="adr6" maxlength="6" style="width:200px" 
+                                                         />
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Permanent Address" >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Address *" style="width:40px" />
+                                            <b:inputTextarea id="padr1" maxlength="20" style="width:200px" rows="4" 
+                                                             />
+                                            <h:outputText value="Village *" style="width:40px" />
+                                            <b:inputText id="padr2" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Taluka / Block *" style="width:40px" />
+                                            <b:inputText id="padr3" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="District *" style="width:40px" />
+                                            <b:inputText id="padr4" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="State *" style="width:40px" />
+                                            <b:selectOneMenu  id="padr5" >
+                                                <f:selectItem itemLabel="(Please select state)" itemValue="" />
+                                                <f:selectItems value="#{appMapBean.indianStates}" />
+                                            </b:selectOneMenu>
+                                            <h:outputText value="Pincode *" style="width:40px" />
+                                            <b:inputText id="padr6" maxlength="6" style="width:200px" 
+                                                         />
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Contact Details" >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Landline Phone" style="width:40px" />
+                                            <b:inputTextarea id="adr10" maxlength="12" style="width:200px" rows="4" 
+                                                             />
+                                            <h:outputText value="Mobile Phone *" style="width:40px" />
+                                            <b:inputText id="adr20" maxlength="12" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Emergency Alternate Contact No *" style="width:40px" />
+                                            <b:inputText id="adr30" maxlength="12" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Email ID" style="width:40px" />
+                                            <b:inputText id="adr40" maxlength="64" style="width:200px" 
+                                                         />
+
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Qualification" >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="Highest Qualification *" style="width:40px" />
+                                            <b:inputTextarea id="adr100" maxlength="30" style="width:200px" rows="4" 
+                                                             />
+                                            <h:outputText value="Year of Passing *" style="width:40px" />
+                                            <b:inputText id="adr200" maxlength="4" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Board University *" style="width:40px" />
+                                            <b:inputText id="adr300" maxlength="40" style="width:200px" 
+                                                         />
+                                            <h:outputText value="Institute Name" style="width:40px" />
+                                            <b:inputText id="adr400" maxlength="64" style="width:200px" 
+                                                         />
+                                            <h:outputText value="% Marks" style="width:40px" />
+                                            <b:inputText id="adr401" maxlength="3" style="width:200px" 
+                                                         />
+
+                                        </b:panelGrid>
+                                    </b:panel>
+                                    <b:panel span="4" title="Form Preparation"  >
+                                        <b:panelGrid columns="2" >
+                                            <h:outputText value="HHH Representative *" style="width:40px" />
+                                            <b:inputText id="adr201" maxlength="400" style="width:200px" 
+                                                         />
+
+                                        </b:panelGrid>
+                                    </b:panel>    
+                                    <b:commandButton value="Prev" ajax="true" look="success" immediate="true"
+                                                     action="#{traineeController.tabPrev()}" update=":TraineeRegistrationForm" />
+                                </b:tab>
+                            </b:tabView>
+                            <f:facet name="footer" >
+                                <b:commandButton value="Save" ajax="true" look="primary" />
+                                <b:commandButton value="Cancel" ajax="true" 
+                                                 update="@form" look="primary" />
+                            </f:facet>
+                        </b:panel>    
+
+                    </b:form>
+                </b:container>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

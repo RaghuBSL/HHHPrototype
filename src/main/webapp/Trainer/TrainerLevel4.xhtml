@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:b="http://bootsfaces.net/ui"
+       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+       xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <ui:composition template="/template.xhtml">
+            <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('Cache-Control', 'no-cache, no-store')}" />
+            <ui:define name="main">        
+                <b:container fluid="true">
+                    <b:form id="TrainerLevel1Form" inline="true">
+                        <b:messages id="allmsg" />
+                        <b:panel title ="Final Round Level 4"  span="3" >
+                            <b:panelGrid columns="2" >    
+                                <h:outputText value="Trainer ID" />
+                                <h:outputText value="1234" />
+                                <h:outputText value="Name " style="width:60px"/>
+                                <b:inputTextarea id="legalname" maxlength="60"  rows="2" span="3" readonly="true"
+                                                 value="candidate One" 
+                                                  />
+                            </b:panelGrid>
+
+                        </b:panel>     
+                        <b:panel title="Final Valuation" span="5" >
+                            <b:panelGrid columns="2" >
+                                <h:outputText value="Attitude"   style="width:60px" />
+                                <b:selectOneMenu  id="ivw" >
+                                    <f:selectItem itemLabel="(Please select status)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.ivwStatus}" />
+                                </b:selectOneMenu>
+                                <h:outputText value="Remarks for Attitude"  style="width:60px" />
+                                <b:inputTextarea id="rsinstr2"  maxlength="200" style="width:200px" rows="3"
+                                                 placeholder="" />
+                                <h:outputText value="Expected CTC"   style="width:60px" />
+                                <b:inputText mask="9999999" maxlength="7"/>
+                                <h:outputText value="Remarks for Thought flow"  style="width:60px"/>
+                                <b:inputTextarea id="tflow"  maxlength="200" style="width:200px" rows="3"
+                                                 placeholder="" />
+                                <h:outputText value="stability"   style="width:60px"/>
+                                <b:selectOneMenu  id="stabl" >
+                                    <f:selectItem itemLabel="(Please select status)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.yesNo}" />
+                                </b:selectOneMenu>
+                            </b:panelGrid>
+                        </b:panel>    
+                        <b:panel title="Joining Info" span="4"  >
+                            <b:panelGrid columns="2" >
+                                <h:outputText value="Expected DOJ"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <h:outputText value="Offer release Date"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+
+                                <h:outputText value="Acceptance"  style="width:60px" />
+                                <b:inputTextarea id="Acpt"  maxlength="200" style="width:200px" rows="3"
+                                                 placeholder="" />
+                                <h:outputText value="Remarks"   style="width:60px" />
+                                <b:inputTextarea id="rmark"  maxlength="200" style="width:200px" rows="3"
+                                                 placeholder="" />
+
+                                <h:outputText value="Application Status"   style="width:60px"/>
+                                <b:selectOneMenu  id="rstatus" >
+                                    <f:selectItem itemLabel="(Please select status)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.trainerStatus}" />
+                                </b:selectOneMenu>
+
+                            </b:panelGrid>
+                        </b:panel>
+                        <b:panel title="Academy Info" span="4" > 
+                            <b:panelGrid columns="2" >
+                                <h:outputText value="Date of departure to Academy"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <h:outputText value="Date of Arrival at Academy"   style="width:60px"/>
+                                <b:datepicker  value="#{appMapBean.entryDate}" />
+                                <h:outputText value="Arrival Status"   style="width:60px"/>
+                                <b:selectOneMenu  id="stabl1" >
+                                    <f:selectItem itemLabel="(Please select status)" itemValue="" />
+                                    <f:selectItems value="#{appMapBean.yesNo}" />
+                                </b:selectOneMenu> 
+                            </b:panelGrid>
+                        </b:panel>    
+                        <b:column medium-screen="1" >
+                            <b:commandButton value="Save" ajax="true" 
+                                             update="@form" look="primary" />
+                        </b:column>
+                    </b:form>
+                </b:container>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

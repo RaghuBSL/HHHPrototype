@@ -1,0 +1,141 @@
+.thirtyPerc
+{
+    width:30%;
+}
+.seventyPerc
+{
+    width:70%;
+}
+.ui-menubar, .ui-menu-child{
+    color: #009999;
+    background-color: #ffa64d;
+    border: none;
+}
+.ui-widget {
+    font-size: 12px !important;
+}
+.buzzversion
+{
+    font-size: 36px !important;
+    
+}
+.ui-layout-north {
+    z-index: 20 !important;
+    overflow: visible !important;;
+}
+.ui-layout-north .ui-layout-unit-content {
+    overflow: visible !important;
+}
+.ui-widget-header {
+    text-align: center; color:#3333ff ; font:bolder; font-size: 48;
+    text-transform: capitalize;
+}
+.text-align-right {
+    text-align: right;
+}
+.selectMenu {
+    display: inline-block; vertical-align: top; 
+}
+.ui-selectonemenu { 
+    vertical-align: top 
+} 
+.ui-button {
+    margin-top: 10px 
+}
+.banner {
+    font-family: Helvetica, sans-serif; color: forestgreen;
+}
+.panelColumns td {
+    vertical-align: bottom; 
+}
+.labelWidth{
+    widht: 150px;
+}
+.labelWidth200{
+    widht: 150px;
+}
+.dataWidth {
+    width: 220px;
+}
+.columnHeight {
+    height: 100px;
+}
+.floatCenter {
+    float: center;
+}
+.commandColumns {
+    vertical-align: top;  
+}
+.feedbackColumns {
+    vertical-align: top; width: 220px;
+}
+.panelGridCenter {
+   margin: 0 auto;
+}
+.panelLabelColumns {
+    vertical-align: bottom;  width:150px;
+}
+.panelDataColumns {
+    vertical-align: bottom;  width:250px;
+}
+.eighty-percent {
+    width: 80%;:
+}
+.buttonPadding {
+    cellpading="0" vertical-align: top; 
+}
+.gridColumns150 {
+    width: 150px; vertical-align: top;
+}
+
+.sixty-percent {
+    width: 60%;
+}
+.twentypercent{
+    width: 20%;
+}
+
+
+.forty-percent {
+    width: 40%;
+}
+.logbg {
+    background: url("#{resource['images/BuzzLogin.jpg']}"); 
+    width: 1300px; height: 700px;
+}
+.bannerText {
+    text-align: center; color:forestgreen ; font:bolder; font-size: 32px;
+
+}
+.center {
+         text-align: center; margin-bottom: 10px; margin-left: 5px;
+}
+
+#button{height:35px; line-height:25px; vertical-align:center;text-align:center;padding:0px;margin:0px}
+
+.buttonBuzz ,.ui-fileupload-upload ,.ui-fileupload-choose ,.ui-fileupload-cancel{
+    display: inline-block;
+    border-radius: 8px;
+    background-color: #47c64c;
+    border: none;
+    color: #FFFFFF;
+    text-align: left;
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 25px;
+    line-height:25px; 
+    vertical-align:center;
+    text-align:center;
+    padding:0px;
+    margin:0px
+}
+
+.buttonBuzz:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0
+        rgba(0,0,0,0.19);
+}
+.dateWidht{
+    style: 215px;
+}
+
+

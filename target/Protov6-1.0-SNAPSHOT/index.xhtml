@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>MIC Platform</title>
+        <meta name="Bangalore Softsell Limited" content="Usha Raikar"></meta>
+    </h:head>
+    <h:body style="padding: 60px;">
+        <b:navBar brand="MIC" brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="About" href="#about"></b:navLink>
+                <b:navLink value="Contact" href="#contact"></b:navLink>
+            </b:navbarLinks>
+        </b:navBar>
+        <b:container fluid="true">
+            <b:form id="loginForm" inline="true">
+                <h:panelGrid columns="1" cellpadding="10">
+                    <b:panel span="8" >
+                        <b:inputText label="User :" labelStyle="width:80px;" id="user"
+                                     placeholder="Username" />
+                        <b:message for="user" />
+                        <b:inputSecret placeholder="Password" label="Password" labelStyle="width:80px;"
+                                       id="password"  update="@(.message)"/>
+                        <p> </p>
+                        <p> </p>
+                        <p> This is for authorized users of MIC application. </p>
+                        <p> Exit Now, if you are not authorized .</p>
+                        <b:row >
+                            <b:column span="4" >
+                                <b:commandButton value="Signin" ajax="true" style="width:100px;"
+                                                 action="template.xhtml?faces-redirect=true"
+                                                 update="@form" look="primary"  />
+                                 <p>   </p>
+                                <b:commandButton value="Exit MIC" ajax="true" style="width:100px;"          
+                                                 update="@form" look="danger"  />
+                            </b:column>
+                        </b:row>    
+                    </b:panel>
+                </h:panelGrid>
+            </b:form>
+        </b:container>
+    </h:body>
+</html>
